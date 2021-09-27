@@ -1,87 +1,131 @@
 <!DOCTYPE html>
 <html>
-    <head>
-<title>Kafeteria</title>
-    </head>
+
+<head>
+    <title>Kafeteria</title>
+</head>
+
 <body>
-<div>
-    <label for="coffee">Välj kaffesort</label>
-    <select id="typeOfCoffee">
-        <option value="1" selected>Bryggkaffe - 20 kr</option>
-        <option value="2" >Cappuccino - 30 kr</option>
-        <option value="3" >Latte - 40 kr</option>
-        
-    </select>
-    <label for="amountOfCoffee" >Antal:</label>
-    <input id="coffee" placeholder="Stycken">
-    <button id="purchaseButton" onclick="onBuyButtonClick()">
-        Köp
-    </button>
+    <div>
+        <label for="coffee">Välj kaffesort</label>
+        <select id="typeOfCoffee">
+            <option value="1" selected>Bryggkaffe - 20 kr</option>
+            <option value="2">Cappuccino - 30 kr</option>
+            <option value="3">Latte - 40 kr</option>
+
+        </select>
+        <label for="amountOfCoffee">Antal:</label>
+        <input id="coffee" placeholder="Stycken">
+        <button id="purchaseButton" onclick="onBuyButtonClick()">Köp</button>
     </div>
     <div id="totalSection">
 
     </div>
     <hr>
 
-   <div id="transactions">
-       <h1>Dina transaktioner:</h1>
-       
-   </div>
+    <div id="transactions">
+        <h1>Dina transaktioner:</h1>
+
+    </div>
     <script>
-        const coffees = [
-  {name: 'Bryggkaffe', price: 20},
-  {name: 'Cappucino', price: 30},
-  {name: 'Latte', price: 40}
-]
+        const coffees = [{
+                name: 'Bryggkaffe',
+                price: 20
+            },
+            {
+                name: 'Cappucino',
+                price: 30
+            },
+            {
+                name: 'Latte',
+                price: 40
+            }
+        ]
 
-let amountOfCups
-let selectedCoffee
-let priceOfCoffee
-
-function howManyCups(){
-    amountOfCups = document.getElementById("coffee").value
-    console.log(amountOfCups)
-    return amountOfCups
-}
-function coffeeSort(){
-    const coffeeOption = document.getElementById("typeOfCoffee")
-    selectedCoffee = coffeeOption.value
-    return selectedCoffee
-}
-
-function onBuyButtonClick() {
-    howManyCups()
-    coffeeSort()
-    priceOfCoffee = totalAmountOfPurchases()
-    displayHistory()
-    // totalAmountOfPurchases()
-    //     // Få ut antalet koppar
-    //     amountOfCups = document.getElementById("coffee").value
-    //     console.log(amountOfCups)
-
-    //     // Få ut typen av kaffe
-    //     const coffeeOption = document.getElementById("typeOfCoffee")
-    //     const selectedCoffee = coffeeOption.innerText
-
-    //     console.log(selectedCoffee)
-
-    //     displayHistory()
-}
-
-    function displayHistory(){
-        const parent = document.getElementById("transactions")
-        const child = document.createElement("p")
-        child.innerHTML = `Du har köpt ${amountOfCups} st ${coffees[selectedCoffee-1].name} för ${coffees[selectedCoffee-1].price}kr. Summa: ${coffees[selectedCoffee-1].price * amountOfCups}`
-        parent.appendChild(child)
-    }
-    
-    function totalAmountOfPurchases(){
-        priceOfCoffee = coffees[selectedCoffee-1].price
-         console.log(priceOfCoffee * amountOfCups)
-        //  return priceOfCoffee * amountOfCups
+        let numberOfCups
+        let selectedCoffee
+        let priceOfCoffee
         
-    }
+        let totalNumberOfCups = 0
+        let totalMoneySpent = 0
+        let membershipStatus = ""
+        
+        
+
+        function howManyCups() {
+            numberOfCups = Number(document.getElementById("coffee").value)
+            console.log(`Number of cups ${numberOfCups}`)
+            return numberOfCups
+        }
+
+        function coffeeSort() {
+            const coffeeOption = document.getElementById("typeOfCoffee")
+            selectedCoffee = coffeeOption.value
+            return selectedCoffee
+        }
+
+        function onBuyButtonClick() {
+            howManyCups()
+            coffeeSort()
+            totalCups()
+            priceOfCoffee = totalAmountOfPurchases()
+            membershipStatusCheck()
+            showHistory()
+
+            // just to make sure if it works
+            console.log(totalMoneySpent);
+            console.log(totalNumberOfCups);
+
+            // Determin Status
+            
+            //Show the results under input box
+            const totalResult = document.getElementById("totalSection")
+            totalResult.innerHTML = `Du har handlat för ${totalMoneySpent}kr <br/> Medlemskaps status: ${membershipStatus}`
+
+            // totalAmountOfPurchases()
+            //     // Få ut antalet koppar
+            //     amountOfCups = document.getElementById("coffee").value
+            //     console.log(amountOfCups)
+
+            //     // Få ut typen av kaffe
+            //     const coffeeOption = document.getElementById("typeOfCoffee")
+            //     const selectedCoffee = coffeeOption.innerText
+
+            //     console.log(selectedCoffee)
+
+            //     displayHistory()
+        }
+
+        function showHistory() {
+            const parent = document.getElementById("transactions")
+            const child = document.createElement("p")
+            child.innerHTML =
+                `Du har köpt ${numberOfCups} st ${coffees[selectedCoffee-1].name} för ${coffees[selectedCoffee-1].price}kr. Summa: ${coffees[selectedCoffee-1].price * numberOfCups}`
+            parent.appendChild(child)
+        }
+        // calculate the total number of cups
+        function totalCups() {
+            totalNumberOfCups = (totalNumberOfCups+numberOfCups)
+        }
+        function totalAmountOfPurchases() {
+            priceOfCoffee = coffees[selectedCoffee - 1].price
+            console.log(priceOfCoffee * numberOfCups)
+            totalMoneySpent = totalMoneySpent + (priceOfCoffee * numberOfCups)
+            //  return priceOfCoffee * amountOfCups
+        }
+
+        function membershipStatusCheck(){
+            if (totalNumberOfCups < 10) {
+                 membershipStatus = "Brons"
+            } else if (totalNumberOfCups >= 10 && totalNumberOfCups < 30) {
+                membershipStatus = "Silver"
+            } else if (totalNumberOfCups >= 30){
+                membershipStatus = "Guld"
+            }
+
+        }
 
     </script>
 </body>
-    </html>
+
+</html>
