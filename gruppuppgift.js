@@ -38,11 +38,16 @@ let membershipStatus = "";
 function howManyCups() {
   //Räknar ut mängden koppar som köpts vid ett tillfälle
   numberOfCups = Number(document.getElementById("coffee").value); //number gör att det blir en integer istället för en string
-  if (numberOfCups >= 0) { //kontrollerar om antal koppar är godkänt
+  if (numberOfCups > 0 && numberOfCups < 10) { //kontrollerar om antal koppar är inom godkänt spann
       validAmount = true //för att tillåta validAmount att användas igen om man skrivit ett negativt värde innan
     return numberOfCups;
-  } else alert("Ogiltigt antal");
-  return (validAmount = false);
+  } else if (numberOfCups <= 0) {
+    alert("För lågt antal angivet. Ange antal koppar köpta mellan 1-10");
+    return (validAmount = false);
+  }
+  else if (numberOfCups > 10){
+  alert("För högt antal angivet. Ange antal koppar köpta mellan 1-10");
+  return (validAmount = false);}
 }
 
 function coffeeSort() {
