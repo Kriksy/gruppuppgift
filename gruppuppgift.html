@@ -36,7 +36,7 @@
 
 let amountOfCups
 let selectedCoffee
-let priceOfCoffee = coffees[coffeSort()-1].price
+let priceOfCoffee
 
 function howManyCups(){
     amountOfCups = document.getElementById("coffee").value
@@ -46,14 +46,15 @@ function howManyCups(){
 function coffeeSort(){
     const coffeeOption = document.getElementById("typeOfCoffee")
     selectedCoffee = coffeeOption.value
-    return selectedCoffe
+    return selectedCoffee
 }
 
 function onBuyButtonClick() {
     howManyCups()
     coffeeSort()
+    priceOfCoffee = totalAmountOfPurchases()
     displayHistory()
-    totalAmountOfPurchases()
+    // totalAmountOfPurchases()
     //     // Få ut antalet koppar
     //     amountOfCups = document.getElementById("coffee").value
     //     console.log(amountOfCups)
@@ -70,12 +71,14 @@ function onBuyButtonClick() {
     function displayHistory(){
         const parent = document.getElementById("transactions")
         const child = document.createElement("p")
-        child.innerHTML = `Du har köpt ${amountOfCups} st ${coffees[selectedCoffee-1].name} för ${priceOfCoffee}kr. Summa: ${priceOfCoffee * amountOfCups}`
+        child.innerHTML = `Du har köpt ${amountOfCups} st ${coffees[selectedCoffee-1].name} för ${coffees[selectedCoffee-1].price}kr. Summa: ${coffees[selectedCoffee-1].price * amountOfCups}`
         parent.appendChild(child)
     }
     
     function totalAmountOfPurchases(){
+        priceOfCoffee = coffees[selectedCoffee-1].price
          console.log(priceOfCoffee * amountOfCups)
+        //  return priceOfCoffee * amountOfCups
         
     }
 
