@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<title>Kafeteria</title>
+    </head>
+<body>
+<div>
+    <label for="coffee">Välj kaffesort</label>
+    <select id="typeOfCoffee">
+        <option value="1" selected>Bryggkaffe - 20 kr</option>
+        <option value="2" >Cappuccino - 30 kr</option>
+        <option value="3" >Latte - 40 kr</option>
+        
+    </select>
+    <label for="amountOfCoffee" >Antal:</label>
+    <input id="coffee" placeholder="Stycken">
+    <button id="purchaseButton" onclick="onBuyButtonClick()">
+        Köp
+    </button>
+    </div>
+    <div id="totalSection">
+
+    </div>
+    <hr>
+
+   <div id="transactions">
+       <h1>Dina transaktioner:</h1>
+       
+   </div>
+    <script>
+        const coffees = [
+  {name: 'Bryggkaffe', price: 20},
+  {name: 'Cappucino', price: 30},
+  {name: 'Latte', price: 40}
+]
+
+let amountOfCups
+let selectedCoffee
+let priceOfCoffee = coffees[coffeSort()-1].price
+
+function howManyCups(){
+    amountOfCups = document.getElementById("coffee").value
+    console.log(amountOfCups)
+    return amountOfCups
+}
+function coffeeSort(){
+    const coffeeOption = document.getElementById("typeOfCoffee")
+    selectedCoffee = coffeeOption.value
+    return selectedCoffe
+}
+
+function onBuyButtonClick() {
+    howManyCups()
+    coffeeSort()
+    displayHistory()
+    totalAmountOfPurchases()
+    //     // Få ut antalet koppar
+    //     amountOfCups = document.getElementById("coffee").value
+    //     console.log(amountOfCups)
+
+    //     // Få ut typen av kaffe
+    //     const coffeeOption = document.getElementById("typeOfCoffee")
+    //     const selectedCoffee = coffeeOption.innerText
+
+    //     console.log(selectedCoffee)
+
+    //     displayHistory()
+}
+
+    function displayHistory(){
+        const parent = document.getElementById("transactions")
+        const child = document.createElement("p")
+        child.innerHTML = `Du har köpt ${amountOfCups} st ${coffees[selectedCoffee-1].name} för ${priceOfCoffee}kr. Summa: ${priceOfCoffee * amountOfCups}`
+        parent.appendChild(child)
+    }
+    
+    function totalAmountOfPurchases(){
+         console.log(priceOfCoffee * amountOfCups)
+        
+    }
+
+    </script>
+</body>
+    </html>
