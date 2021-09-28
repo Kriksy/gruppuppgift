@@ -17,7 +17,7 @@
       </select>
       <label for="amountOfCoffee">Antal:</label>
       <input id="coffee" placeholder="Stycken" min="0"/>
-      <button id="purchaseButton" onclick="onBuyButtonClick()">Köp</button>
+      <button id="purchaseButton" onclick="onBuyButtonClick();document.getElementById('coffee').value = ''">Köp</button>
     </div>
     <div id="totalSection"></div>
     <hr />
