@@ -124,7 +124,7 @@ function showHistory() {
   defaultText.style.display = "none" //gör du har inga transaktioner osynlig
 
 }
-
+ 
 function totalCups() {
   //summerar den totala mängden av koppar
   totalNumberOfCups += numberOfCups;
