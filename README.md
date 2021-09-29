@@ -25,7 +25,7 @@ Användarens transaktionshistorik ska skrivas ut (kaffesort, antal, totalpris)
 Det totala värdet för användarens transaktioner ska skrivas ut
 - Så här ser det ut när användaren kommer in på sajten
 
-    ![Screenshot 2021-09-26 at 21.06.11.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d207f237-1e87-4ec0-9d2a-8536a1968f5d/Screenshot_2021-09-26_at_21.06.11.png)
+    https://www.notion.so/Dag-7-Gruppuppgift-e8b87243939e4e9c94ab90e0ec7e8f7e#b104132bd0cf44a197e36171bc2d9c16
 
 - Så här ser det ut när användaren först köpt 5 bryggkaffe och sedan 4 Cappuccino
     
