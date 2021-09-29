@@ -93,12 +93,12 @@ function onBuyButtonClick() {
     showHistory();
     addToHistoryArray();
 
-
-    //just to make sure if it works
-    // console.log(totalMoneySpent);
-    // console.log(totalNumberOfCups);
-
-    // Determin Status
+    const dicountText = document.getElementById("discount"); //kontrollerar vilken discount man har och skriver ut den
+    if (totalMoneySpent >= 500 && totalMoneySpent < 1000) {
+      dicountText.innerHTML = "Du har nu 10% rabatt på ordinarie priser."
+    } else if (totalMoneySpent >= 1000) {
+      dicountText.innerHTML = "Du har nu 15% rabatt på ordinarie priser."
+    }
 
     //Show the results under input box
     const totalResult = document.getElementById("totalSection"); //Visar totala resultatet att köpen
