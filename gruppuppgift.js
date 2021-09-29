@@ -6,8 +6,7 @@ class CoffeStorage {
   }
 }
 
-const coffees = [
-  {
+const coffees = [{
     //array med information om kaffet som kan köpas
     name: "Bryggkaffe",
     price: 20,
@@ -28,6 +27,7 @@ let validAmount = true;
 let numberOfCups; //antal koppar vid köpet
 let selectedCoffee; //typ av kopp id köp
 let priceOfCoffee; //priset på antal koppar vi köp
+let updatedPriceOfCoffee; // Nya priset för en kaffe med rabatt
 
 //Totala summor
 let totalNumberOfCups = 0;
@@ -64,24 +64,46 @@ function howManyCups() {
   //Räknar ut mängden koppar som köpts vid ett tillfälle
   numberOfCups = Number(document.getElementById("coffee").value); //number gör att det blir en integer istället för en string
   if (numberOfCups > 0 && numberOfCups < 10) { //kontrollerar om antal koppar är inom godkänt spann
-      validAmount = true //för att tillåta validAmount att användas igen om man skrivit ett negativt värde innan
+    validAmount = true //för att tillåta validAmount att användas igen om man skrivit ett negativt värde innan
     return numberOfCups;
   } else if (numberOfCups <= 0) {
     alert("För lågt antal angivet. Ange antal koppar köpta mellan 1-10");
     return (validAmount = false);
+  } else if (numberOfCups > 10) {
+    alert("För högt antal angivet. Ange antal koppar köpta mellan 1-10");
+    return (validAmount = false);
   }
-  else if (numberOfCups > 10){
-  alert("För högt antal angivet. Ange antal koppar köpta mellan 1-10");
-  return (validAmount = false);}
 }
 
 function coffeeSort() {
   selectedCoffee = document.getElementById("typeOfCoffee").selectedIndex
     return selectedCoffee
   //tar fram vilket sorts kaffe som köpts
-  // const coffeeOption = document.getElementById("typeOfCoffee");
-  // selectedCoffee = coffeeOption.selectedIndex;
-  // return selectedCoffee;
+}
+
+function onBuyButtonClick() {
+  //funktion som triggar funktioner vid köp
+  howManyCups();
+  if (validAmount) {
+    coffeeSort();
+    totalCups();
+    calculateCoffeePrice()
+    totalAmountOfPurchases();
+    membershipStatusCheck();
+    showHistory();
+    addToHistoryArray();
+
+
+    //just to make sure if it works
+    // console.log(totalMoneySpent);
+    // console.log(totalNumberOfCups);
+
+    // Determin Status
+
+    //Show the results under input box
+    const totalResult = document.getElementById("totalSection"); //Visar totala resultatet att köpen
+    totalResult.innerHTML = `Du har handlat för ${totalMoneySpent}kr <br/> Medlemskaps status: ${membershipStatus}`;
+  }
 }
 
 function showHistory() {
@@ -100,6 +122,7 @@ function showHistory() {
   let transactionFirst = document.getElementById("letItBeFirst") 
   transactionFirst.insertBefore(child, transactionFirst.childNodes[0])//Gör att transaktionen hamnar högst upp
   defaultText.style.display = "none" //gör du har inga transaktioner osynlig
+
 }
 
 function totalCups() {
@@ -132,7 +155,7 @@ function addToHistoryArray() {
   let storageObject = new CoffeStorage(
     coffees[selectedCoffee].name,
     numberOfCups,
-    coffees[selectedCoffee].price * numberOfCups
+    updatedPriceOfCoffee * numberOfCups
   );
   transactionHistory.push(storageObject);
   console.log(transactionHistory)
@@ -141,12 +164,12 @@ function addToHistoryArray() {
 function calculateCoffeePrice() {
   // Hämta original priset för kaffet
   let coffeePrice = coffees[selectedCoffee].price
+
   // Räkna prisändring -- Fick tips att använda 1.0
   let priceChange = 1.0; //= 1.0 // 1.0 == 100%, ingen rabatt 1.0 * 300 = 300
 
   // 1000kr måste vara först annars kommer vi aldrig att få rabatten på 15%
   // Vid 1000kr, minska 15%
-  
   
   if (totalMoneySpent >= 500){
     priceChange = 0.90;
@@ -166,6 +189,7 @@ function calculateCoffeePrice() {
   // else if (totalMoneySpent >= 500) {
   //   priceChange = 0.90; // 10% rabatt --- 100 * 0.9 = 90
   // }
+
   let newCoffeePrice = priceChange * coffeePrice
 
   console.log({
@@ -177,5 +201,5 @@ function calculateCoffeePrice() {
 
   // Uppdatera priset på kaffe
   updatedPriceOfCoffee = newCoffeePrice
-
 } 
+
