@@ -28,7 +28,7 @@ Det totala värdet för användarens transaktioner ska skrivas ut
 
 - Så här ser det ut när användaren kommer in på sajten
 
-  ![01.png](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d207f237-1e87-4ec0-9d2a-8536a1968f5d/Screenshot_2021-09-26_at_21.06.11.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210929%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210929T105120Z&X-Amz-Expires=86400&X-Amz-Signature=159721889d13feb5a37f62d5bb4166501cc959c03f4d93c258927f5dc22b802d&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Screenshot%25202021-09-26%2520at%252021.06.11.png%22)
+  ![01.png](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/d207f237-1e87-4ec0-9d2a-8536a1968f5d/Screenshot_2021-09-26_at_21.06.11.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20211003%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20211003T102229Z&X-Amz-Expires=86400&X-Amz-Signature=509e0f2bd469222dd4421122c924a8c6a2c28a01dd823bb2451ee4d28ef5793c&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Screenshot%25202021-09-26%2520at%252021.06.11.png%22)
 
 - Så här ser det ut när användaren först köpt 5 bryggkaffe och sedan 4 Cappuccino
 
