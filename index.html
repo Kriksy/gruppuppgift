@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="stylesheet.css"></link>
-    <title>Kafeteria</title>
-    
-  </head>
 
-  <body>
-    <div id="title"><h1>Välkommen till Webb21 (grupp 2) Café</h1>
-      <img src="https://as1.ftcdn.net/v2/jpg/02/57/94/36/1000_F_257943668_ty4GC7mWTe35AFAdaTpmhTlyXPh5UuaD.jpg"></div>
-    
-    <div>
-      <label for="coffee">Välj kaffesort</label>
-      <select id="typeOfCoffee">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="stylesheet.css">
+  </link>
+  <title>Kafeteria</title>
+
+</head>
+
+<body>
+  <div id="title">
+    <h1>Välkommen till Webb21 (grupp 2) Café</h1>
+    <img src="https://as1.ftcdn.net/v2/jpg/02/57/94/36/1000_F_257943668_ty4GC7mWTe35AFAdaTpmhTlyXPh5UuaD.jpg">
+  </div>
+
+  <div>
+    <label for="coffee">Välj kaffesort</label>
+    <select id="typeOfCoffee">
+      <!--
         <option value="1" selected>Bryggkaffe - 20 kr</option>
         <option value="2">Cappuccino - 30 kr</option>
         <option value="3">Latte - 40 kr</option>
-      </select>
-      <label for="amountOfCoffee">Antal:</label>
-      <input id="coffee" placeholder="Stycken" min="0"/>
-      <button id="purchaseButton" onclick="onBuyButtonClick();document.getElementById('coffee').value = ''">Köp</button>
-    </div>
-    <div id="totalSection"></div>
-    <div id="discount"></div>
-    <hr />
-      
-      <h2>Dina transaktioner:</h2>
-      <div id="letItBeFirst">
-        <p id="transactions"></p>
-      </div>
-      <p id="noTransactions">Du har inga transaktioner</p>
-    <script type="text/javascript" src="gruppuppgift.js"></script>
-  </body>
+      -->
+    </select>
+    <label for="amountOfCoffee">Antal:</label>
+    <input id="coffee" placeholder="Stycken" min="0" />
+    <button id="purchaseButton" onclick="onBuyButtonClick();document.getElementById('coffee').value = ''">Köp</button>
+  </div>
+  <div id="totalSection"></div>
+  <div id="discount"></div>
+  <hr />
+
+  <h2>Dina transaktioner:</h2>
+  <div id="letItBeFirst">
+    <p id="transactions"></p>
+  </div>
+  <p id="noTransactions">Du har inga transaktioner</p>
+  <script type="text/javascript" src="gruppuppgift.js"></script>
+</body>
+
 </html>
