@@ -48,7 +48,6 @@ function onBuyButtonClick() {
     showHistory();
     addToHistoryArray();
     displayCustomerInformation()
-    updateCoffeSelectionView()
   }
 }
 //Räknar ut mängden koppar som köpts vid ett tillfälle
