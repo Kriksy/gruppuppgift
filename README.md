@@ -28,15 +28,15 @@ Det totala värdet för användarens transaktioner ska skrivas ut
 
 - Så här ser det ut när användaren kommer in på sajten
 
-  ![](images/Screenshot%2021-09-26%at%21.06.11.png)
+  ![](images/Screenshot_2021-09-26_at_21-06-11.png)
 
 - Så här ser det ut när användaren först köpt 5 bryggkaffe och sedan 4 Cappuccino
 
-  ![](images/Screenshot%2021-09-26%at%21.07.01.png)
+  ![](images/Screenshot_2021-09-26_at_21-07-01.png)
 
 - Så här ser det ut när användaren först köpt 5 bryggkaffe, sedan 4 Cappuccino och sedan 10 latten
 
-  ![](images/Screenshot%2021-09-26%at%21.07.38.png)
+  ![](images/Screenshot_2021-09-26_at_21-07-38.png)
   
   # Stilpoäng
   - Lägg in javascripten i en egen fil. ✅
